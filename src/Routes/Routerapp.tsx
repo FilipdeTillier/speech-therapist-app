@@ -1,10 +1,10 @@
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import MainPage from "../MainPage/MainPage";
-import Courses from "../Courses/Courses";
-import Test from "../Games/Test";
+import {BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom";
+import MainPage from "../Pages/MainPage";
+import Courses from "../Pages/Courses";
+import Test from "../Pages/Test";
 
 
-function Routerapp() {
+const Routerapp = () => {
   return (
     <Router>
       <Routes>

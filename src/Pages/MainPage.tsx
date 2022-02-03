@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 
-function MainPage() {
+const MainPage = () => {
   return <div><Link to={"/courses"}>MainPage</Link></div>;
 }
 
