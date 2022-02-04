@@ -1,7 +1,5 @@
 import { ReactElement } from "react";
 
-const Test = (): ReactElement => {
+export const MainPage = (): ReactElement => {
   return <div></div>;
 };
-
-export default Test;
