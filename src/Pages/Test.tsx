@@ -1,4 +1,11 @@
+import { useParams } from "react-router-dom";
 
-const Test = () => { return <div>test</div> }
+const Test = () => {
+  
+  const params = useParams();
+
+  return <h1>{params.testId}</h1>
+
+}
 
 export default Test;
