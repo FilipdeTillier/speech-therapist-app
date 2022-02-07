@@ -1,5 +1,12 @@
 import { ReactElement } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/Store";
 
 export const Courses = (): ReactElement => {
-  return <div></div>;
+  const count = useSelector((state: RootState) => state.counter.value);
+  return (
+    <div>
+      <div>{count}</div>
+    </div>
+  );
 };
