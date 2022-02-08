@@ -8,6 +8,7 @@ import Polish from "./lang/pl.json";
 import English from "./lang/en.json";
 
 import "./App.scss";
+import { Router } from "./Routes/Router";
 
 const languages = {
   [Language.POLISH]: Polish,
@@ -40,6 +41,7 @@ function App() {
         </Button>
         <Button variant="contained">Contained</Button>
         <Button variant="outlined">Outlined</Button>
+        <Router />
       </div>
     </IntlProvider>
   );
