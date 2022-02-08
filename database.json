@@ -1,0 +1,26 @@
+{
+  "courses-types": [
+    {
+      "id": 1,
+      "name": "type-1",
+      "count": 1,
+      "description": "123",
+      "image": ""
+    },
+    {
+      "id": 2,
+      "name": "type-2",
+      "count": 3,
+      "description": "123",
+      "image": ""
+    },
+    {
+      "id": 3,
+      "name": "type-3",
+      "count": 5,
+      "description": "123",
+      "image": ""
+    },
+    { "id": 4, "name": "type-4", "count": 2, "description": "123", "image": "" }
+  ]
+}
