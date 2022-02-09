@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
 
 export const Courses = (): ReactElement => {
-  return <div></div>;
+  return <div>Courses</div>;
 };
