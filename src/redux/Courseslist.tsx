@@ -1,19 +1,26 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "./Store";
 
 export interface CoursesState {
-  value: { course: string }[];
+  value: any[];
 }
 
 const initialState: CoursesState = {
-  value: [{ course: "firstacourse" }, { course: "secondcourse" }],
+  value: [],
 };
 
 export const coursesSlice = createSlice({
   name: "courseslist",
   initialState,
-  reducers: {},
+  reducers: {
+    saveCourse: (state, action: PayloadAction<any>) => {
+      state.value.push(action.payload);
+    },
+  },
 });
 
-export const {} = coursesSlice.actions;
+export const { saveCourse } = coursesSlice.actions;
+
+export const showCourses = (state: RootState) => state.courseslist.value;
 
 export default coursesSlice.reducer;

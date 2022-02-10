@@ -1,9 +1,35 @@
-import { ReactElement } from "react";
-import { useSelector } from "react-redux";
+import { ReactElement, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/Store";
+import { saveCourse } from "../../redux/Courseslist";
+import { CoursesItem } from "./CoursesItem";
+import { showCourses } from "../../redux/Courseslist";
 
 export const Courses = (): ReactElement => {
-  const courses = useSelector((state: RootState) => state.courseslist.value);
+  //const courses = useSelector((state: RootState) => state.courseslist.value);
 
-  return <div>{courses}</div>;
+  const [input, setInput] = useState<any | null>(null);
+  const dispatch = useDispatch();
+
+  const coursesList = useSelector(showCourses);
+
+  const addCourses = () => {
+    dispatch(
+      saveCourse({
+        course: input,
+      })
+    );
+  };
+
+  return (
+    <div>
+      <div>
+        {coursesList.map(({ course }: { course: any }) => (
+          <CoursesItem name={course.course} />
+        ))}
+      </div>
+      <input value={input} onChange={(e) => setInput(e.target.value)} />
+      <button onClick={addCourses}>add</button>
+    </div>
+  );
 };
