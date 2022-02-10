@@ -3,10 +3,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../redux/Store";
 
 export const Courses = (): ReactElement => {
-  const count = useSelector((state: RootState) => state.counter.value);
-  return (
-    <div>
-      <div>{count}</div>
-    </div>
-  );
+  const courses = useSelector((state: RootState) => state.courseslist.value);
+
+  return <div>{courses}</div>;
 };

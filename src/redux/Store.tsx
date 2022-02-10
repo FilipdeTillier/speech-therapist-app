@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "./Counter";
+import coursesReducer from "./Courseslist";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    courseslist: coursesReducer,
   },
 });
 
