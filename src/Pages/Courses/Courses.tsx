@@ -24,7 +24,7 @@ export const Courses = (): ReactElement => {
   return (
     <div>
       <div>
-        {coursesList.map(({ course }: { course: any }) => (
+        {coursesList.map((course) => (
           <CoursesItem name={course.course} />
         ))}
       </div>
