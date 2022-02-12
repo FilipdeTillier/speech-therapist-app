@@ -6,8 +6,6 @@ import { CoursesItem } from "./CoursesItem";
 import { showCourses } from "../../redux/Courseslist";
 
 export const Courses = (): ReactElement => {
-  //const courses = useSelector((state: RootState) => state.courseslist.value);
-
   const [input, setInput] = useState<any | null>(null);
   const dispatch = useDispatch();
 
