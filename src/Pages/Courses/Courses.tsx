@@ -1,15 +1,14 @@
-import { ReactElement, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../redux/Store";
 import { saveCourse } from "../../redux/Courseslist";
-import { CoursesItem } from "./CoursesItem";
-import { showCourses } from "../../redux/Courseslist";
+import { RootState } from "../../redux/Store";
+import { fetchCourses } from "../../redux/actions/CoursesActions";
+import { Link } from "@mui/material";
 
 export const Courses = (): ReactElement => {
-  const [input, setInput] = useState<any | null>(null);
+  const [input, setInput] = useState<any | null>();
+  const courses = useSelector((state: RootState) => state.courseslist.value);
   const dispatch = useDispatch();
-
-  const coursesList = useSelector(showCourses);
 
   const addCourses = () => {
     dispatch(
@@ -19,12 +18,14 @@ export const Courses = (): ReactElement => {
     );
   };
 
+  useEffect(() => {
+    !courses.length && dispatch(fetchCourses());
+  }, []);
+
   return (
     <div>
       <div>
-        {coursesList.map((course) => (
-          <CoursesItem name={course.course} />
-        ))}
+        {courses && courses.map((el) => <div key={el.id}>{el.id}</div>)}
       </div>
       <input value={input} onChange={(e) => setInput(e.target.value)} />
       <button onClick={addCourses}>add</button>

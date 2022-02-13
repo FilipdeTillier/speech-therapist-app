@@ -1,8 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { TCourse } from "../common/interfaces/TCourse";
+import { fetchCourses } from "./actions/CoursesActions";
 import { RootState } from "./Store";
 
 export interface CoursesState {
-  value: any[];
+  value: TCourse[];
 }
 
 const initialState: CoursesState = {
@@ -16,6 +18,12 @@ export const coursesSlice = createSlice({
     saveCourse: (state, action: PayloadAction<any>) => {
       state.value.push(action.payload);
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchCourses.fulfilled, (state, action) => ({
+      ...state,
+      value: action.payload,
+    }));
   },
 });
 
