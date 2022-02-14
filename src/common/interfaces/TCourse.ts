@@ -1,4 +1,4 @@
 export type TCourse = {
   id: string;
-  name?: string;
+  name: string;
 };

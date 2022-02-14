@@ -23,5 +23,8 @@
     },
     { "id": 4, "name": "type-4", "count": 2, "description": "123", "image": "" }
   ],
-  "courses": [{ "id": 1, "name": "firstTest" }, { "id": 2 }]
+  "courses": [
+    { "id": 1, "name": "firstTest" },
+    { "id": 2, "name": "secondTest" }
+  ]
 }
