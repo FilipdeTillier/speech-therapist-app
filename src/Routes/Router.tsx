@@ -14,7 +14,7 @@ export const Router = (): ReactElement => {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<MainPage />} />
-            <Route path="/courses" element={<Courses />}></Route>
+            <Route path="/courses" element={<Courses />} />
             <Route path="/courses/:id" element={<Course />} />
           </Route>
         </Routes>
