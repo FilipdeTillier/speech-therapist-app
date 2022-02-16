@@ -22,7 +22,6 @@ export const Courses = (): ReactElement => {
             </Link>
           ))}
       </div>
-      <Outlet />
     </div>
   );
 };
