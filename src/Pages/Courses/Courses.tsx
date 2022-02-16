@@ -2,7 +2,7 @@ import { ReactElement, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/Store";
 import { fetchCourses } from "../../redux/actions/CoursesActions";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 export const Courses = (): ReactElement => {
   const courses = useSelector((state: RootState) => state.courseslist.value);
@@ -14,12 +14,15 @@ export const Courses = (): ReactElement => {
 
   return (
     <div>
-      {courses &&
-        courses.map((el) => (
-          <Link to={"/test"}>
-            <div key={el.id}>{el.id}</div>
-          </Link>
-        ))}
+      <div>
+        {courses &&
+          courses.map((el) => (
+            <Link to={`/courses/${el.id}`}>
+              <div key={el.id}>{el.id}</div>
+            </Link>
+          ))}
+      </div>
+      <Outlet />
     </div>
   );
 };
