@@ -6,6 +6,7 @@ import { Layout } from "../components/Layout/Layout";
 import { ReactElement } from "react";
 import { store } from "../redux/Store";
 import { Provider } from "react-redux";
+import { FirstCourse } from "../Pages/firstCourse/FirstCourse";
 
 export const Router = (): ReactElement => {
   return (
@@ -16,6 +17,7 @@ export const Router = (): ReactElement => {
             <Route path="/" element={<MainPage />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/courses/:id" element={<Course />} />
+            <Route path="/firstcourse" element={<FirstCourse />} />
           </Route>
         </Routes>
       </BrowserRouter>
