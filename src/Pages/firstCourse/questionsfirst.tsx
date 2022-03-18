@@ -1,4 +1,7 @@
+import Plane from "./imagequestions/plane.jpeg";
+import Car from "./imagequestions/car.jpeg";
+
 export const table = [
-  { image: "a", option: [{ answear: "amolot", correct: "s" }] },
-  { image: "b", option: [{ answear: "samocho", correct: "d" }] },
+  { image: Plane, option: [{ answear: "_amolot", correct: "s" }] },
+  { image: Car, option: [{ answear: "samocho_", correct: "d" }] },
 ];
