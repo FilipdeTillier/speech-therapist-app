@@ -27,6 +27,8 @@ export const FirstCourse = (): ReactElement => {
       setQuestion(question);
       alert("Wrong answear Try again!");
     }
+
+    setInput("");
   };
 
   return (
@@ -57,16 +59,17 @@ export const FirstCourse = (): ReactElement => {
             {table[question].option.map((option) => (
               <div>
                 <div className="answear" key={option.answear}>
-                  {option.answear}
+                  {option.answear.split("")}
                 </div>
                 <input
                   className="input-answear"
                   type="text"
+                  id="input"
                   onChange={handleChange}
                 />
                 <button
                   className="button-correct"
-                  onClick={() => ButtonClick(option.correct)}
+                  onClick={() => ButtonClick(option.answear[2])}
                 >
                   Submit
                 </button>
