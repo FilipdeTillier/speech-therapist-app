@@ -13,7 +13,7 @@ export const FirstCourse = (): ReactElement => {
     setInput(event.target.value);
   };
 
-  const ButtonClick = (correct: any) => {
+  const buttonClick = (correct: any) => {
     const nextQuestion = question + 1;
 
     if (correct == input) {
@@ -31,6 +31,23 @@ export const FirstCourse = (): ReactElement => {
     setInput("");
   };
 
+  const previousQuestion = () => {
+    if (question > 0) {
+      setQuestion(question - 1);
+    } else {
+      setQuestion(question);
+    }
+  };
+
+  const nextQuestion = () => {
+    const nextQuestion = question + 1;
+    if (nextQuestion < table.length) {
+      setQuestion(nextQuestion);
+    } else {
+      setShowScore(true);
+    }
+  };
+
   return (
     <div>
       {showScore ? (
@@ -44,32 +61,36 @@ export const FirstCourse = (): ReactElement => {
       ) : (
         <div>
           <div className="stepper">
-            <button onClick={() => setQuestion(question - 1)}>
+            <button onClick={() => previousQuestion()}>
               Poprzednie pytanie
             </button>
             <div className="stepper-count">
               {question + 1}/{table.length}
             </div>
-            <button onClick={() => setQuestion(question + 1)}>
-              Nastepne pytanie
-            </button>
+            <button onClick={() => nextQuestion()}>Nastepne pytanie</button>
           </div>
           <img className="image" src={table[question].image} />
           <div>
             {table[question].option.map((option) => (
               <div>
                 <div className="answear" key={option.answear}>
-                  {option.answear.split("")}
+                  {option.answear.split("").map((word) => (
+                    <div className="answer-word" key={word}>
+                      {option.answear[2] === word ? (
+                        <input
+                          className="answer-input answer-word"
+                          maxLength={1}
+                          onChange={handleChange}
+                        />
+                      ) : (
+                        word
+                      )}
+                    </div>
+                  ))}
                 </div>
-                <input
-                  className="input-answear"
-                  type="text"
-                  id="input"
-                  onChange={handleChange}
-                />
                 <button
                   className="button-correct"
-                  onClick={() => ButtonClick(option.answear[2])}
+                  onClick={() => buttonClick(option.answear[2])}
                 >
                   Submit
                 </button>

@@ -15,10 +15,19 @@
 }
 
 .answear {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 10px 0;
   font-size: 25px;
   font-weight: 600;
   letter-spacing: 3px;
+}
+
+.answer-input {
+  border: none;
+  border-bottom: 3px solid black;
+  width: 18px;
 }
 
 .input-answear {
