@@ -1,11 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { MainPage } from "../Pages/MainPage/MainPage";
 import { Courses } from "../Pages/Courses/Courses";
-import Test from "../Pages/Test";
+import { Course } from "../Pages/Course/Course";
 import { Layout } from "../components/Layout/Layout";
 import { ReactElement } from "react";
 import { store } from "../redux/Store";
 import { Provider } from "react-redux";
+import { FirstCourse } from "../Pages/firstCourse/FirstCourse";
 
 export const Router = (): ReactElement => {
   return (
@@ -15,7 +16,8 @@ export const Router = (): ReactElement => {
           <Route element={<Layout />}>
             <Route path="/" element={<MainPage />} />
             <Route path="/courses" element={<Courses />} />
-            <Route path="/test" element={<Test />} />
+            <Route path="/courses/:id" element={<Course />} />
+            <Route path="/firstcourse" element={<FirstCourse />} />
           </Route>
         </Routes>
       </BrowserRouter>

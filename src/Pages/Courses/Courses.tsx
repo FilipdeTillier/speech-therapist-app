@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/Store";
 import { fetchCourses } from "../../redux/actions/CoursesActions";
@@ -14,12 +14,14 @@ export const Courses = (): ReactElement => {
 
   return (
     <div>
-      {courses &&
-        courses.map((el) => (
-          <Link to={""}>
-            <div key={el.id}>{el.id}</div>
-          </Link>
-        ))}
+      <div>
+        {courses &&
+          courses.map((el) => (
+            <Link to={`/courses/${el.id}`}>
+              <div key={el.id}>{el.id}</div>
+            </Link>
+          ))}
+      </div>
     </div>
   );
 };
