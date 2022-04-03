@@ -1,5 +1,10 @@
 import { ReactElement, useState } from "react";
 import { table } from "./questionsfirst";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./FirstCourse.scss";
 
@@ -25,7 +30,10 @@ export const FirstCourse = (): ReactElement => {
       }
     } else {
       setQuestion(question);
-      alert("Wrong answear Try again!");
+      toast.error("Wrong answear Try again!", {
+        position: "top-center",
+        autoClose: 2000,
+      });
     }
 
     setInput("");
@@ -59,23 +67,32 @@ export const FirstCourse = (): ReactElement => {
           </div>
         </div>
       ) : (
-        <div>
-          <div className="stepper">
-            <button onClick={() => previousQuestion()}>
-              Poprzednie pytanie
-            </button>
-            <div className="stepper-count">
-              {question + 1}/{table.length}
+        <div className="container">
+          <ToastContainer />
+          <div className="header">
+            <div className="command">Wpisz brakujaca litere</div>
+            <div className="stepper">
+              <button
+                className="stepper-button"
+                onClick={() => previousQuestion()}
+              >
+                <NavigateBeforeIcon />
+              </button>
+              <div className="stepper-count">
+                {question + 1}/{table.length}
+              </div>
+              <button className="stepper-button" onClick={() => nextQuestion()}>
+                <NavigateNextIcon />
+              </button>
             </div>
-            <button onClick={() => nextQuestion()}>Nastepne pytanie</button>
           </div>
           <img className="image" src={table[question].image} />
           <div>
             {table[question].option.map((option) => (
               <div>
-                <div className="answear" key={option.answear}>
+                <div className="answer" key={option.answear}>
                   {option.answear.split("").map((word) => (
-                    <div className="answer-word" key={word}>
+                    <div className="answer-word b" key={word}>
                       {option.answear[2] === word ? (
                         <input
                           className="answer-input answer-word"
